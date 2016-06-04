@@ -11,7 +11,7 @@
 		?>
 		</td>
 		<td class="shop-info">
-			<div class="shop-name"><h1><?php $wpo_wcpdf->shop_name(); ?></h1></div>
+			<div class="shop-name"><h3><?php $wpo_wcpdf->shop_name(); ?></h3></div>
 			<div class="shop-address"><?php $wpo_wcpdf->shop_address(); ?></div>
 		</td>
 	</tr>

@@ -1,0 +1,24 @@
+<wpml-config>
+    <custom-types>
+        <custom-type translate="1">logo</custom-type>
+        <custom-type translate="1">testimonial</custom-type>
+        <custom-type translate="1">team</custom-type>  
+        <custom-type translate="1">faq</custom-type>
+    </custom-types>
+    <admin-texts>
+        <key name="yit-panel-options_panarea">
+            <key name="content-404-text-container" />
+            <key name="blog-read-more-text" />
+            <key name="blog-single-share-text" />
+            <key name="footer-left-text" />
+            <key name="footer-right-text" />
+            <key name="shop-add-to-cart-text" />
+            <key name="shop-sale-text" />
+        </key>
+        <key name="yit_sitemap_options">
+            <key name="sitemap-post-title" />
+            <key name="sitemap-archive-title" />
+            <key name="sitemap-product-title" />
+        </key>
+    </admin-texts>
+</wpml-config>

@@ -128,7 +128,15 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Settings' ) ) {
 					<?php
 					do_action( 'wpo_wcpdf_before_settings_page', $active_tab );
 
-					if ( !( class_exists('WooCommerce_PDF_IPS_Pro') && class_exists('WooCommerce_PDF_IPS_Dropbox') && class_exists('WooCommerce_PDF_IPS_Templates') && class_exists('WooCommerce_Ext_PrintOrders') ) ) {
+					// save or check option to hide extensions ad
+					if ( isset( $_GET['wpo_wcpdf_hide_extensions_ad'] ) ) {
+						update_option( 'wpo_wcpdf_hide_extensions_ad', true );
+						$hide_ad = true;
+					} else {
+						$hide_ad = get_option( 'wpo_wcpdf_hide_extensions_ad' );
+					}
+					
+					if ( !$hide_ad && !( class_exists('WooCommerce_PDF_IPS_Pro') && class_exists('WooCommerce_PDF_IPS_Dropbox') && class_exists('WooCommerce_PDF_IPS_Templates') && class_exists('WooCommerce_Ext_PrintOrders') ) ) {
 						include('wcpdf-extensions.php');
 					}
 
@@ -610,6 +618,19 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Settings' ) ) {
 					'id'				=> 'yearly_reset_invoice_number',
 				)
 			);	
+
+			add_settings_field(
+				'currency_font',
+				__( 'Extended currency symbol support', 'wpo_wcpdf' ),
+				array( &$this, 'checkbox_element_callback' ),
+				$option,
+				'invoice',
+				array(
+					'menu'				=> $option,
+					'id'				=> 'currency_font',
+					'description'			=> __( 'Enable this if your currency symbol is not displaying properly' , 'wpo_wcpdf' ),
+				)
+			);			
 
 			// Section.
 			add_settings_section(
